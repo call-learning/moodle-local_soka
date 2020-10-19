@@ -21,14 +21,23 @@
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') or die();
+
+use local_soka\local\utils;
+
 define('AJAX_SCRIPT', true);
 require_once(__DIR__ . '/../../config.php');
 
 $email = required_param('email', PARAM_EMAIL);
-$type = required_param('type', PARAM_ALPHANUMEXT);
+$type = optional_param('type', utils::DEFAULT_TYPE, PARAM_ALPHANUMEXT);
 $score = optional_param('score', \local_soka\local\utils::NO_SCORE, PARAM_INT);
 
 require_login();
+require_sesskey();
+if (get_host_from_url(get_local_referer())
+    != get_host_from_url(qualified_me() . 'h5p/embed.php')) {
+    echo json_encode((object) ['status' => false,
+        'error' => get_string('mustbesameorigin', 'local_soka')]);
+    die();
+}
 
 echo json_encode(\local_soka\local\utils::issue_badge($email, $type, $score));

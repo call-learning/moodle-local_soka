@@ -36,3 +36,4 @@ $string['softskillsbadge:emaillink'] = 'Please follow this link to obtain your b
 $string['softskillsbadge:emailbody'] = '<p>You have completed the Softskill questionnaire on {$a->sitename}
  and we are pleased to deliver</p><p>Your Experience Badge</p><p>{$a->scoredisplay}</p>';
 $string['yourscore'] = 'Your attained score of completion is {$a}';
+$string['mustbesameorigin'] = 'Must be of the same origin to accept query';

@@ -46,6 +46,11 @@ class utils {
     const NO_SCORE = -1;
 
     /**
+     * Default type for badge
+     */
+    const DEFAULT_TYPE = 'softskillsbadge';
+
+    /**
      * Issue a badge from given parameters
      *
      * @param string $email
@@ -115,7 +120,7 @@ class utils {
         }
 
         if (!$badgeid) {
-            $badgeid = get_config('local_soka', 'softskillsbadge');
+            $badgeid = get_config('local_soka', self::DEFAULT_TYPE);
         }
         return obf_badge::get_instance($badgeid, $obfclient);
     }
@@ -139,7 +144,7 @@ class utils {
             $scoredisplay = get_string('yourscore', 'local_soka', $score);
         }
         $emailbody = get_string("{$type}:emailbody", 'local_soka',
-            ['scoredisplay' => $scoredisplay, 'sitename' => format_string($SITE->fullname)]);
+            ['scoredisplay' => $scoredisplay, 'sitename' => $SITE->fullname]);
 
         return [$emailsubject, $emailfooter, $emaillinktext, $emailbody];
     }
