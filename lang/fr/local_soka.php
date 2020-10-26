@@ -34,6 +34,6 @@ $string['softskillsbadge:emailsubject'] = 'Votre badge Softskill Experience est 
 $string['softskillsbadge:emailfooter'] = 'Merci d \' avoir utilisé le test de softskill!';
 $string['softskillsbadge:emaillink'] = 'Veuillez suivre ce lien pour obtenir votre badge.';
 $string['softskillsbadge:emailbody'] = 'Vous avez rempli le questionnaire Softskill sur {$a->sitename}
- et nous sommes heureux de vous livrer votre badge d’expérience {$a->scoreisplay}.';
-$string['yourscore'] = 'Votre score de réussite atteint est {$ a}';
+ et nous sommes heureux de vous livrer votre badge d’expérience ({$a->scoredisplay}).';
+$string['yourscore'] = 'Score: {$a}%';
 $string['mustbesameorigin'] = 'Doit être de la même origine pour accepter la requête';
